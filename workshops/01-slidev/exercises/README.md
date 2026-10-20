@@ -4,7 +4,7 @@ One short Part A prompt exercise plus three Slidev exercises that pair with the 
 
 ## Exercise A, Create a Markdown presentation brief (5 min)
 
-Use ChatGPT, Claude, Gemini, or any similar chat assistant. If you have your own non-confidential source material, use that. Otherwise, use the fallback source text below.
+Use Gemini, or ChatGPT Edu or Claude if your unit provides them. Stick to university-sanctioned tools: personal AI subscriptions are no longer reimbursed. If you have your own non-confidential source material, use that. Otherwise, use the fallback source text below.
 
 Prompt:
 
@@ -44,7 +44,7 @@ and how shared facilities improve reproducibility and reduce duplicated effort.
 It should avoid marketing language and focus on practical next steps.
 ```
 
-Result: you should have a `presentation-brief.md`-style outline that could feed Slidev, PowerPoint, Canva, an AI deck builder, or another AI editing pass.
+Result: you should have a `presentation-brief.md`-style outline that could feed Slidev, Google Slides with Gemini, PowerPoint, or another AI editing pass.
 
 **Stretch:** ask the assistant to revise the brief for a different audience, such as first-year graduate students or external collaborators.
 

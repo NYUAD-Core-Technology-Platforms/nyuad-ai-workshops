@@ -1100,6 +1100,28 @@ isolates one effect; Resample bumps the seed for a new draw.
 -->
 
 ---
+
+# Interactive physics: an OPM sensor
+
+From our lab's MEG talk: drag **brain field B** to tilt the rubidium spins.
+
+<OpmSensorDemo />
+
+<!--
+Second live demo, this time physics instead of statistics. It comes from the
+NeuroWaves lab CTP presentation (MegFigure.vue, OPM sensor step), dropped into
+this deck as its own component.
+
+How an OPM works: a 795 nm laser optically pumps rubidium-87 atoms in a small
+vapour cell so their electron spins line up. The brain's magnetic field makes the
+spins precess, so the vapour absorbs more of the laser light, and the photodetector
+reads that drop in transmitted light. No cryogenics, so the sensor sits on the scalp.
+
+Drag the slider from 0 up: spins go from aligned to scattered and the detector
+reading falls. The percentage is illustrative, not a calibrated model.
+-->
+
+---
 layout: end
 ---
 

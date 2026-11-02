@@ -672,51 +672,76 @@ Notes for slide 2
 
 
 ---
-layout: two-cols-header
+layout: default
 ---
 
 # Running the deck
 
-`cd` into the folder where `slides.md` lives, install Slidev locally (pinned to `^0.49.0` because v52 has a Windows path bug), and start the dev server. Open `http://localhost:3030/` when it prints.
+**1 · Install Node once per computer** (or download LTS from [nodejs.org](https://nodejs.org)):
 
-::left::
+<div class="os-grid">
+<div class="os-col">
 
-### Windows (PowerShell)
-
-**No Node yet?** Download LTS from [nodejs.org](https://nodejs.org), or:
+**Windows** · PowerShell
 
 ```powershell
 winget install OpenJS.NodeJS.LTS
 ```
 
-Then in a **fresh** PowerShell window:
+Then open a **fresh** window.
 
-```powershell
-cd C:\path\to\your\deck
-npm init -y
-npm i "@slidev/cli@^0.49.0" @slidev/theme-default
-npx slidev
-```
+</div>
+<div class="os-col">
 
-::right::
-
-### macOS / Linux (Terminal)
-
-**No Node yet?** Download LTS from [nodejs.org](https://nodejs.org), or:
+**macOS** · Terminal
 
 ```bash
-brew install node           # macOS
-sudo apt install nodejs npm # Debian / Ubuntu
+brew install node
 ```
 
-Then in your deck folder:
+No Homebrew, or `brew` fails? Use the macOS installer from [nodejs.org](https://nodejs.org).
+
+</div>
+<div class="os-col">
+
+**Linux** · Debian / Ubuntu
 
 ```bash
-cd /path/to/your/deck
+sudo apt install nodejs npm
+```
+
+</div>
+</div>
+
+**2 · In your deck folder, on any system:** install Slidev (pinned to `^0.49.0`, v52 has a Windows path bug) and start it.
+
+```bash
+cd path/to/your/deck
 npm init -y
 npm i "@slidev/cli@^0.49.0" @slidev/theme-default
-npx slidev
+npx slidev            # then open http://localhost:3030/
 ```
+
+<style scoped>
+.os-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:var(--s-4); margin:var(--s-2) 0 var(--s-3); }
+.os-col { border-left:3px solid var(--accent-ink); padding-left:var(--s-3); }
+.os-grid p { margin:0 0 var(--s-1); font-size:var(--t-small); }
+.os-grid pre { margin:var(--s-1) 0 !important; }
+</style>
+
+<!--
+Mac fallback, if brew is missing or fails: skip Homebrew entirely. Download the macOS
+installer (.pkg) from nodejs.org, double-click it, then open a new Terminal window.
+That gives node, npm and npx, which is all this slide needs.
+
+If someone wants Homebrew anyway, the command from brew.sh is:
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+It asks for the Mac admin password and can take several minutes (it may install
+Apple's Command Line Tools first). On Apple Silicon it ends with two "Next steps"
+commands that put brew on the PATH; they must be copied and run, or brew is still
+"command not found". brew.sh lists macOS Sequoia 15 and newer as supported, so
+older Macs should go straight to the nodejs.org installer.
+-->
 
 ---
 layout: two-cols-header
@@ -762,36 +787,55 @@ layout: default
 
 # Install Git, then clone
 
-Git downloads the repo and keeps its full history. Install it once per computer; cloning this public repo needs no GitHub account.
+**1 · Install Git once per computer.** Cloning this public repo needs no GitHub account.
 
-<div class="grid grid-cols-2 gap-6">
-<div>
+<div class="os-grid">
+<div class="os-col">
 
-**Windows** (PowerShell), then open a **fresh** window:
+**Windows** · PowerShell
 
 ```powershell
-winget install --id Git.Git -e --source winget
+winget install --id Git.Git -e
 ```
 
-</div>
-<div>
+Then open a **fresh** window.
 
-**macOS / Linux** (Terminal):
+</div>
+<div class="os-col">
+
+**macOS** · Terminal
 
 ```bash
-xcode-select --install   # macOS, or: brew install git
-sudo apt install git     # Debian / Ubuntu
+xcode-select --install
+```
+
+Or `brew install git`.
+
+</div>
+<div class="os-col">
+
+**Linux** · Debian / Ubuntu
+
+```bash
+sudo apt install git
 ```
 
 </div>
 </div>
 
-**Then, on any system:** check the install and clone the repo into the current folder.
+**2 · On any system:** check the install and clone the repo into the current folder.
 
 ```bash
 git --version
 git clone https://github.com/NYUAD-Core-Technology-Platforms/nyuad-ai-workshops.git
 ```
+
+<style scoped>
+.os-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:var(--s-4); margin:var(--s-2) 0 var(--s-3); }
+.os-col { border-left:3px solid var(--accent-ink); padding-left:var(--s-3); }
+.os-grid p { margin:0 0 var(--s-1); font-size:var(--t-small); }
+.os-grid pre { margin:var(--s-1) 0 !important; }
+</style>
 
 <!--
 Same pattern as Node: Git installs once for the whole computer. On Windows the new

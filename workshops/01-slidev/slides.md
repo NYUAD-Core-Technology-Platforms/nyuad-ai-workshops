@@ -591,7 +591,6 @@ layout: default
   </div>
   <div class="gs-step gs-step--row">
     <span class="gs-eyebrow">3 &middot; Follow along</span>
-    <span class="gs-tip">Move with <NyuKbd>&larr;</NyuKbd> <NyuKbd>&rarr;</NyuKbd>. Nothing to install, it runs in the browser.</span>
   </div>
 </div>
 
@@ -695,7 +694,7 @@ Then in a **fresh** PowerShell window:
 ```powershell
 cd C:\path\to\your\deck
 npm init -y
-npm i -D "@slidev/cli@^0.49.0" @slidev/theme-default
+npm i "@slidev/cli@^0.49.0" @slidev/theme-default
 npx slidev
 ```
 
@@ -715,7 +714,7 @@ Then in your deck folder:
 ```bash
 cd /path/to/your/deck
 npm init -y
-npm i -D "@slidev/cli@^0.49.0" @slidev/theme-default
+npm i "@slidev/cli@^0.49.0" @slidev/theme-default
 npx slidev
 ```
 
@@ -725,7 +724,7 @@ layout: two-cols-header
 
 # Export to PDF or PowerPoint
 
-Hand the deck off as a portable file. One time, install the headless browser Slidev renders with: `npm install -D playwright-chromium`. Exports are snapshots, so interactive parts become static images.
+Hand the deck off as a portable file. One time, install the headless browser Slidev renders with: `npm install playwright-chromium`. Exports are snapshots, so interactive parts become static images.
 
 ::left::
 

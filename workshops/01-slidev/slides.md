@@ -44,6 +44,11 @@ layout: default
 
 # What you'll leave with
 
+<div class="ag-pre">
+  <span class="ag-chip ag-chip--proposed">First &middot; ~10 min</span>
+  <span><strong>Opening:</strong> institutional AI platforms, accepted data and costs, with Chenyu Yi</span>
+</div>
+
 <div class="agenda">
   <section class="ag-card ag-card--watch">
     <div class="ag-head">
@@ -79,17 +84,19 @@ layout: default
 </div>
 
 <style scoped>
-.agenda { display:flex; align-items:stretch; flex:1 1 auto; min-height:0; margin:16px 0 4px; }
-.ag-card { flex:1; display:flex; flex-direction:column; border:1px solid var(--hairline); border-radius:var(--r-2); padding:24px 30px; }
+.ag-pre { display:flex; align-items:center; gap:14px; margin:8px 0 0; padding:8px 16px; border:1px dashed var(--accent-ink); border-radius:var(--r-2); font-size:15px; color:var(--fg1); }
+.ag-chip--proposed { flex:none; }
+.agenda { display:flex; align-items:stretch; flex:1 1 auto; min-height:0; margin:10px 0 4px; }
+.ag-card { flex:1; display:flex; flex-direction:column; border:1px solid var(--hairline); border-radius:var(--r-2); padding:18px 30px; }
 .ag-card--watch { background:var(--surface-violet); }
 .ag-card--build { background:var(--bg1); }
 .ag-eyebrow { font-family:var(--font-sans); font-size:var(--t-eyebrow); font-weight:600; text-transform:uppercase; letter-spacing:var(--tracked); color:var(--accent-ink); }
 .ag-title { font-family:var(--font-serif); font-size:40px; font-weight:700; line-height:var(--lh-tight); color:var(--fg1); margin-top:4px; }
-.ag-lede { font-family:var(--font-serif); font-size:var(--t-body-lg); color:var(--fg2); margin-top:10px; max-width:26ch; }
-.ag-list { list-style:none; padding:0; margin:18px 0 0; }
-.ag-list li { position:relative; padding-left:22px; font-size:17px; color:var(--fg1); line-height:1.85; }
-.ag-list li::before { content:""; position:absolute; left:0; top:0.72em; width:8px; height:8px; background:var(--accent-ink); }
-.ag-foot { margin-top:auto; padding-top:16px; }
+.ag-lede { font-family:var(--font-serif); font-size:var(--t-body-lg); color:var(--fg2); margin-top:8px; max-width:26ch; line-height:var(--lh-snug); }
+.ag-list { list-style:none; padding:0; margin:12px 0 0; }
+.ag-list li { position:relative; padding-left:22px; font-size:17px; color:var(--fg1); line-height:1.6; }
+.ag-list li::before { content:""; position:absolute; left:0; top:0.57em; width:8px; height:8px; background:var(--accent-ink); }
+.ag-foot { margin-top:auto; padding-top:12px; }
 .ag-chip { display:inline-block; font-family:var(--font-sans); font-size:var(--t-caption); font-weight:600; letter-spacing:var(--tracked-sm); text-transform:uppercase; padding:0.3em 0.85em; border-radius:var(--r-pill); border:1px solid var(--accent-ink); color:var(--accent-ink); }
 .ag-chip--solid { background:var(--nyu-violet); color:var(--white); border-color:var(--nyu-violet); }
 .ag-arrow { display:flex; align-items:center; padding:0 20px; color:var(--violet-300); font-size:34px; flex:none; }
@@ -98,6 +105,11 @@ layout: default
 <!--
 First content slide, so make it land: Part A you watch, Part B you build, and A leads into
 B. Point at the two words "Watch" and "Build" rather than reading the lists.
+
+Chenyu Yi opens the session with ~10 min on institutional AI platforms, accepted data and
+costs, presenting her own slides before this deck (dashed strip above the cards). With
+Part A ~20 and Part B ~40 that is ~70 min inside the 12:00-13:15 slot. If we must hold to
+60 min, trim Part A to ~15 and Part B to ~35.
 -->
 
 ---
@@ -142,19 +154,27 @@ layout: default
 
 <p class="lede">Pick the tool last. Everything before it is portable.</p>
 
+<NyuCallout label="Responsible use" tone="sand">
+Use university-sanctioned AI tools. Unsanctioned tools, including personal ChatGPT, Claude, or Gemini subscriptions, are no longer reimbursed by the university.
+</NyuCallout>
+
 <style scoped>
-.flow { display:flex; align-items:stretch; gap:16px; margin-top:48px; }
+.flow { display:flex; align-items:stretch; gap:16px; margin-top:36px; }
 .flow__step { flex:1; border:1px solid var(--hairline); border-radius:var(--r-2); padding:22px 24px; }
 .flow__step--last { border-color:var(--accent-ink); }
 .flow__k { font-family:var(--font-sans); font-weight:700; text-transform:uppercase; letter-spacing:var(--tracked-sm); font-size:13px; color:var(--accent-ink); margin-bottom:10px; }
 .flow__v { font-size:15px; color:var(--fg2); line-height:var(--lh-snug); }
 .flow__arrow { display:flex; align-items:center; color:var(--fg3); font-size:26px; }
-.lede { margin-top:40px; font-family:var(--font-serif); font-size:var(--t-body-lg); color:var(--fg1); }
+.lede { margin-top:32px; font-family:var(--font-serif); font-size:var(--t-body-lg); color:var(--fg1); }
 </style>
 
 <!--
 Slow the "AI makes slides" instinct. The first decision is where the structure of the
 talk lives, not which app to open. Keep it fast; it sets up the ladder next.
+
+Responsible use: read the callout as written and do not add policy detail beyond it.
+Point back to Chenyu's opening for which platforms are sanctioned,
+what data each accepts, and what they cost.
 -->
 
 ---
@@ -213,7 +233,7 @@ layout: default
 
 <span class="nyu-eyebrow">Raw material &rarr; a portable brief</span>
 
-Upload your content as a PDF, then ask for a structured Markdown brief:
+Upload a PDF to Gemini (or your unit's chat tool), then ask for a Markdown brief:
 
 ```text
 Turn the attached proposal PDF into a Markdown presentation brief.
@@ -235,8 +255,11 @@ humanoid-competition-proposal.pdf
 
 <!--
 Use a prepared proposal with sponsor names, logos, and identifying details removed.
-Run this live in ChatGPT on the org account. The copy button on the code block makes it
-easy to grab. The output is a Markdown brief, which the next slide unpacks.
+Run this live in Gemini so everyone can follow with the tool most people have; ChatGPT Edu
+or Claude work the same way if your unit provides them. Only upload material the
+platform is approved for (see the opening section on accepted data). The copy button on
+the code block makes it easy to grab. The output is a Markdown brief, which the next slide
+unpacks (and defines what Markdown and a .md file are).
 -->
 
 ---
@@ -263,20 +286,28 @@ goal: get productive in the lab fast
 <!-- speaker note: open with the why -->
 ```
 
+<p style="font-family:var(--font-serif);font-size:var(--t-body-lg);color:var(--fg2);margin:10px 0 0;">One plain-text file. Every tool downstream can read it.</p>
+
 ::right::
 
-<p style="font-family:var(--font-serif);font-size:var(--t-body-lg);color:var(--fg2);margin:0 0 18px;">One plain-text file. Every tool downstream can read it.</p>
+<NyuCallout label="Jargon check: Markdown and .md">
+Plain text plus a few symbols: <code>#</code> heading, <code>-</code> bullet. Saved as a <code>.md</code> file; opens in any text editor.
+</NyuCallout>
 
 <ul style="list-style:none;padding:0;margin:0;">
   <li style="display:flex;align-items:flex-start;gap:12px;margin:0 0 13px;font-size:17px;line-height:1.5;color:var(--fg1);"><span style="flex:none;width:8px;height:8px;margin-top:7px;background:var(--accent-ink);"></span><span><strong style="color:var(--accent-ink);font-weight:700;">Readable</strong>: humans scan it at a glance</span></li>
   <li style="display:flex;align-items:flex-start;gap:12px;margin:0 0 13px;font-size:17px;line-height:1.5;color:var(--fg1);"><span style="flex:none;width:8px;height:8px;margin-top:7px;background:var(--accent-ink);"></span><span><strong style="color:var(--accent-ink);font-weight:700;">Editable</strong>: AI rewrites it precisely</span></li>
-  <li style="display:flex;align-items:flex-start;gap:12px;margin:0 0 13px;font-size:17px;line-height:1.5;color:var(--fg1);"><span style="flex:none;width:8px;height:8px;margin-top:7px;background:var(--accent-ink);"></span><span><strong style="color:var(--accent-ink);font-weight:700;">Portable</strong>: feeds Slidev, PowerPoint, PDF, Claude</span></li>
+  <li style="display:flex;align-items:flex-start;gap:12px;margin:0 0 13px;font-size:17px;line-height:1.5;color:var(--fg1);"><span style="flex:none;width:8px;height:8px;margin-top:7px;background:var(--accent-ink);"></span><span><strong style="color:var(--accent-ink);font-weight:700;">Portable</strong>: feeds Slidev, PowerPoint, PDF, Gemini</span></li>
   <li style="display:flex;align-items:flex-start;gap:12px;margin:0 0 13px;font-size:17px;line-height:1.5;color:var(--fg1);"><span style="flex:none;width:8px;height:8px;margin-top:7px;background:var(--accent-ink);"></span><span><strong style="color:var(--accent-ink);font-weight:700;">Versionable</strong>: diff and track it like code</span></li>
 </ul>
 
 <!--
 This is why Markdown shows up now, not earlier: the brief from Level 1 is plain text you
 can read, version, and hand to any tool. It is the through-line for the rest of Part A.
+
+Define the jargon before moving on (callout): Markdown is ordinary text with a few
+symbols for formatting, and ".md" is just its file extension, like ".docx" for Word.
+Assume some of the room has never opened one.
 -->
 
 ---
@@ -287,8 +318,17 @@ layout: two-cols-header
 
 ::left::
 
-<div style="display:flex; align-items:center; justify-content:center; height:100%;">
-  <img class="claude-logo" src="/img/claude.png" alt="Claude" style="max-width:82%; max-height:110px; object-fit:contain;" />
+<div class="tool-opts">
+  <div class="tool-opt tool-opt--lead">
+    <div class="tool-opt__k">Start here</div>
+    <div class="tool-opt__v">Gemini</div>
+    <div class="tool-opt__d">Canvas drafts slides from your brief; export them to Google Slides</div>
+  </div>
+  <div class="tool-opt">
+    <div class="tool-opt__k">If your unit provides it</div>
+    <div class="tool-opt__v">Claude Design</div>
+    <div class="tool-opt__d">The same idea inside Claude</div>
+  </div>
 </div>
 
 ::right::
@@ -301,12 +341,23 @@ layout: two-cols-header
 </ul>
 
 <NyuCallout label="Live demo" tone="violet">
-Into Claude Design now. Gamma and Canva do similar things.
+Into Gemini Canvas now, then out to Google Slides.
 </NyuCallout>
 
+<style scoped>
+.tool-opts { display:flex; flex-direction:column; justify-content:center; gap:14px; height:100%; }
+.tool-opt { border:1px solid var(--hairline); border-radius:var(--r-2); padding:16px 20px; }
+.tool-opt--lead { border-color:var(--accent-ink); background:var(--surface-violet); }
+.tool-opt__k { font-family:var(--font-sans); font-size:var(--t-eyebrow); font-weight:600; text-transform:uppercase; letter-spacing:var(--tracked-sm); color:var(--accent-ink); }
+.tool-opt__v { font-family:var(--font-serif); font-size:26px; font-weight:700; color:var(--fg1); margin-top:4px; line-height:var(--lh-tight); }
+.tool-opt__d { font-size:15px; color:var(--fg2); margin-top:6px; line-height:var(--lh-snug); }
+</style>
+
 <!--
-Switch to Claude Design: show a prompt, the generated deck, and one iteration by asking
-for a change. Name Gamma/Canva once; the concept is what matters, not a tour.
+Lead with the option most people have: in the Gemini app, open Canvas, paste the brief,
+ask for a presentation, then export to Google Slides and ask for one change. If your unit
+provides Claude, Claude Design does the same job; mention it as the alternative, not the
+default. The concept is what matters, not a tour of products.
 -->
 
 ---
@@ -317,26 +368,47 @@ layout: two-cols-header
 
 ::left::
 
-<div style="display:flex; align-items:center; justify-content:center; height:100%;">
-  <img src="/img/powerpoint.png" alt="PowerPoint" style="max-width:82%; max-height:170px; object-fit:contain;" />
+<div class="tool-opts">
+  <div class="tool-opt tool-opt--lead">
+    <div class="tool-opt__k">Start here</div>
+    <div class="tool-opt__v">Gemini in Google Slides</div>
+    <div class="tool-opt__d">The Gemini side panel, inside your existing deck</div>
+  </div>
+  <div class="tool-opt">
+    <div class="tool-opt__k">If your unit provides it</div>
+    <div class="tool-opt__v">Claude in PowerPoint</div>
+    <div class="tool-opt__d">The Claude add-in, for PowerPoint templates</div>
+  </div>
 </div>
 
 ::right::
 
 <ul style="list-style:none;padding:0;margin:0;">
-  <li style="display:flex;align-items:flex-start;gap:12px;margin:0 0 13px;font-size:18px;line-height:1.5;color:var(--fg1);"><span style="flex:none;width:8px;height:8px;margin-top:8px;background:var(--accent-ink);"></span><span>Lives inside PowerPoint / Slides</span></li>
+  <li style="display:flex;align-items:flex-start;gap:12px;margin:0 0 13px;font-size:18px;line-height:1.5;color:var(--fg1);"><span style="flex:none;width:8px;height:8px;margin-top:8px;background:var(--accent-ink);"></span><span>Lives inside Google Slides / PowerPoint</span></li>
   <li style="display:flex;align-items:flex-start;gap:12px;margin:0 0 13px;font-size:18px;line-height:1.5;color:var(--fg1);"><span style="flex:none;width:8px;height:8px;margin-top:8px;background:var(--accent-ink);"></span><span>Stays in your required template</span></li>
   <li style="display:flex;align-items:flex-start;gap:12px;margin:0 0 13px;font-size:18px;line-height:1.5;color:var(--fg1);"><span style="flex:none;width:8px;height:8px;margin-top:8px;background:var(--accent-ink);"></span><span>Best for last-mile polish</span></li>
   <li style="display:flex;align-items:flex-start;gap:12px;margin:0 0 13px;font-size:18px;line-height:1.5;color:var(--fg1);"><span style="flex:none;width:8px;height:8px;margin-top:8px;background:var(--accent-ink);"></span><span>No new tool to learn</span></li>
 </ul>
 
 <NyuCallout label="Live demo" tone="violet">
-Into PowerPoint with the Claude plugin.
+Into Google Slides with Gemini.
 </NyuCallout>
 
+<style scoped>
+.tool-opts { display:flex; flex-direction:column; justify-content:center; gap:14px; height:100%; }
+.tool-opt { border:1px solid var(--hairline); border-radius:var(--r-2); padding:16px 20px; }
+.tool-opt--lead { border-color:var(--accent-ink); background:var(--surface-violet); }
+.tool-opt__k { font-family:var(--font-sans); font-size:var(--t-eyebrow); font-weight:600; text-transform:uppercase; letter-spacing:var(--tracked-sm); color:var(--accent-ink); }
+.tool-opt__v { font-family:var(--font-serif); font-size:26px; font-weight:700; color:var(--fg1); margin-top:4px; line-height:var(--lh-tight); }
+.tool-opt__d { font-size:15px; color:var(--fg2); margin-top:6px; line-height:var(--lh-snug); }
+</style>
+
 <!--
-Switch to PowerPoint and use the Claude plugin live. The point: help inside an existing
-deck or a mandated template, where the file itself is the constraint.
+Switch to Google Slides and use Gemini in the side panel live (for example: rewrite a
+slide for a new audience, or generate a slide from the brief). The point: help inside an
+existing deck or a mandated template, where the file itself is the constraint. If your
+unit provides Claude, the Claude add-in does the same in PowerPoint; mention it as the
+alternative.
 -->
 
 ---
@@ -347,9 +419,13 @@ layout: two-cols-header
 
 ::left::
 
-<div style="display:flex; align-items:center; justify-content:center; height:100%;">
-  <img src="/img/codex.png" alt="Codex" style="max-width:94%; max-height:250px; object-fit:contain;" />
+<div style="display:flex; align-items:center; justify-content:center; flex:1 1 auto; min-height:0;">
+  <img src="/img/codex.png" alt="Codex" style="max-width:80%; max-height:120px; object-fit:contain;" />
 </div>
+
+<NyuCallout label="Mind your credits" tone="sand">
+Agent tasks use far more tokens than a chat: the agent reads files, runs commands, and retries. Use a lighter model for simple edits, scope each prompt to one change, and check your credit balance.
+</NyuCallout>
 
 ::right::
 
@@ -361,12 +437,19 @@ layout: two-cols-header
 </ul>
 
 <NyuCallout label="That is Part B" tone="accent">
-We do this live with Codex and Slidev next.
+We do this live with Codex and Slidev next. No agent access? Paste <code>slides.md</code> into Gemini and copy the edits back.
 </NyuCallout>
 
 <!--
 Don't demo here, just name it and point forward. This whole level is Part B, performed
 live right after this.
+
+Credits (raise it now, before anyone runs an agent): as credit limits kick in, note that
+one agentic run can use many times the tokens of a chat, because the agent reads the
+repo, runs tools, and loops. Habits: pick a lighter or faster model for small edits, ask for one
+scoped change per prompt, stop runs that wander, and check your balance before Part B.
+Gemini fallback: anyone without an agent can still follow the Markdown workflow by pasting
+slides.md into Gemini chat.
 -->
 
 ---
@@ -387,7 +470,7 @@ layout: default
   <g class="out" style="animation-delay:0.72s"><rect class="out-box" x="615" y="15" width="275" height="40" rx="4"/><text class="out-t" x="634" y="36" dominant-baseline="middle">Slidev deck</text></g>
   <g class="out" style="animation-delay:0.90s"><rect class="out-box" x="615" y="69" width="275" height="40" rx="4"/><text class="out-t" x="634" y="90" dominant-baseline="middle">PDF / web</text></g>
   <g class="out" style="animation-delay:1.08s"><rect class="out-box" x="615" y="123" width="275" height="40" rx="4"/><text class="out-t" x="634" y="144" dominant-baseline="middle">PowerPoint</text></g>
-  <g class="out" style="animation-delay:1.26s"><rect class="out-box" x="615" y="177" width="275" height="40" rx="4"/><text class="out-t" x="634" y="198" dominant-baseline="middle">Claude Design</text></g>
+  <g class="out" style="animation-delay:1.26s"><rect class="out-box" x="615" y="177" width="275" height="40" rx="4"/><text class="out-t" x="634" y="198" dominant-baseline="middle">Google Slides (Gemini)</text></g>
   <g class="out" style="animation-delay:1.44s"><rect class="out-box" x="615" y="231" width="275" height="40" rx="4"/><text class="out-t" x="634" y="252" dominant-baseline="middle">LaTeX / Beamer</text></g>
   <g class="out" style="animation-delay:1.62s"><rect class="out-box" x="615" y="285" width="275" height="40" rx="4"/><text class="out-t" x="634" y="306" dominant-baseline="middle">Another AI pass</text></g>
 </svg>
@@ -447,20 +530,22 @@ pnpm dev:01
 
 ::right::
 
-<p style="font-family:var(--font-serif);font-size:var(--t-body-lg);color:var(--fg2);margin:0 0 18px;">A README for AI agents. Independent of the tool you use.</p>
+<NyuCallout label="Jargon check">
+<strong>Agent</strong>: an AI assistant that can edit and run your files. <strong>AGENTS.md</strong> (an agent.md file): the standing instructions it reads before it starts working.
+</NyuCallout>
 
 <ul style="list-style:none;padding:0;margin:0;">
-  <li style="display:flex;align-items:flex-start;gap:12px;margin:0 0 13px;font-size:18px;line-height:1.5;color:var(--fg1);"><span style="flex:none;width:8px;height:8px;margin-top:8px;background:var(--accent-ink);"></span><span>Codex, Cursor, Copilot, Aider all read it</span></li>
   <li style="display:flex;align-items:flex-start;gap:12px;margin:0 0 13px;font-size:18px;line-height:1.5;color:var(--fg1);"><span style="flex:none;width:8px;height:8px;margin-top:8px;background:var(--accent-ink);"></span><span>Conventions, commands, and guardrails in one place</span></li>
-  <li style="display:flex;align-items:flex-start;gap:12px;margin:0 0 13px;font-size:18px;line-height:1.5;color:var(--fg1);"><span style="flex:none;width:8px;height:8px;margin-top:8px;background:var(--accent-ink);"></span><span>Point your agent here first</span></li>
-  <li style="display:flex;align-items:flex-start;gap:12px;margin:0 0 13px;font-size:18px;line-height:1.5;color:var(--fg1);"><span style="flex:none;width:8px;height:8px;margin-top:8px;background:var(--accent-ink);"></span><span>Codex picks it up automatically in this repo</span></li>
+  <li style="display:flex;align-items:flex-start;gap:12px;margin:0 0 13px;font-size:18px;line-height:1.5;color:var(--fg1);"><span style="flex:none;width:8px;height:8px;margin-top:8px;background:var(--accent-ink);"></span><span>Codex reads it automatically; some tools use a twin (CLAUDE.md, GEMINI.md)</span></li>
 </ul>
 
 <!--
-The "how do you steer the agent" beat. AGENTS.md is plain Markdown at the repo root that
-any agent reads first, so the repo is independent of which tool you use. Point Codex at the
-repo and it reads this automatically. Mention CLAUDE.md verbally: same idea, Claude Code's
-own flavor; the open AGENTS.md works across all of them, so we keep just one.
+The "how do you steer the agent" beat. Start with the jargon (callout): an agent is an AI
+assistant that can act on your files, and AGENTS.md is the plain-text file of standing
+instructions it reads before it starts. It sits at the repo root and is plain Markdown, so
+the repo stays independent of which tool you use. Point Codex at the repo and it reads
+this automatically. Mention CLAUDE.md and GEMINI.md verbally: same idea, the default file
+names for Claude Code and Gemini CLI; the open AGENTS.md works across tools, so we keep one.
 -->
 
 ---
@@ -478,6 +563,8 @@ From portable Markdown source to a published Slidev presentation.
 <!--
 Big-chapter divider. Part A gave the 20-minute workflow map. Part B is the
 hands-on implementation: turn the source-of-truth idea into a running Slidev deck.
+Before the first live Codex prompt, repeat the credits reminder from Level 4: lighter
+model for small edits, one scoped change per prompt, check your balance.
 -->
 
 ---

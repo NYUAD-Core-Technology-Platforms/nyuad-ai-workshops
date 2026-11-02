@@ -757,6 +757,55 @@ images, so the running deck (or the published site) stays the richest version.
 -->
 
 ---
+layout: default
+---
+
+# Install Git, then clone
+
+Git downloads the repo and keeps its full history. Install it once per computer; cloning this public repo needs no GitHub account.
+
+<div class="grid grid-cols-2 gap-6">
+<div>
+
+**Windows** (PowerShell), then open a **fresh** window:
+
+```powershell
+winget install --id Git.Git -e --source winget
+```
+
+</div>
+<div>
+
+**macOS / Linux** (Terminal):
+
+```bash
+xcode-select --install   # macOS, or: brew install git
+sudo apt install git     # Debian / Ubuntu
+```
+
+</div>
+</div>
+
+**Then, on any system:** check the install and clone the repo into the current folder.
+
+```bash
+git --version
+git clone https://github.com/NYUAD-Core-Technology-Platforms/nyuad-ai-workshops.git
+```
+
+<!--
+Same pattern as Node: Git installs once for the whole computer. On Windows the new
+git command only appears in a PowerShell window opened after the install. On a Mac,
+just typing git with no Git installed also pops up the Command Line Tools installer.
+
+The repo is public, so cloning needs no account and no sign-in. An account only
+matters later, to push (write access to the NYUAD-Core-Technology-Platforms org).
+Before a first commit, set the name and email that label your commits:
+git config --global user.name "Your Name" and git config --global user.email
+"you@nyu.edu", ideally the same email as the person's GitHub account.
+-->
+
+---
 layout: two-cols-header
 ---
 
@@ -769,8 +818,9 @@ After the manual setup above works once, **this repo** ships a scaffold script s
 ### Scaffold
 
 ```bash
+npm install -g pnpm@9   # one-time, per computer
 cd nyuad-ai-workshops
-pnpm install         # one-time
+pnpm install            # one-time, per clone
 pnpm new-workshop my-talk
 ```
 
@@ -785,6 +835,13 @@ A ready-to-edit deck at `workshops/NN-my-talk/`:
 - `public/` for images, `exercises/` for handouts
 
 Now run it (next slide).
+
+<!--
+This repo is a pnpm workspace, so plain npm cannot install the workshops; pnpm is
+required. npm install -g pnpm@9 installs it for the whole computer (version 9 matches
+the repo's packageManager pin). On Linux with apt-installed Node, the global install
+needs sudo. Open a fresh terminal on Windows if pnpm is not found right after.
+-->
 
 
 

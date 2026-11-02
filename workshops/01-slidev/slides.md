@@ -568,6 +568,60 @@ model for small edits, one scoped change per prompt, check your balance.
 -->
 
 ---
+layout: default
+---
+
+# Get these slides on your laptop
+
+<div class="gs">
+  <div class="gs-step">
+    <span class="gs-eyebrow">1 &middot; Type this in your browser</span>
+    <a class="gs-url" href="https://tinyurl.com/nyuad-ai" target="_blank">tinyurl.com/nyuad-ai</a>
+  </div>
+  <div class="gs-step">
+    <span class="gs-eyebrow">2 &middot; On the page that opens, click the deck</span>
+    <div class="gs-mock">
+      <div class="gs-deck gs-hit"><span class="gs-num">01</span><span class="gs-title">AI-Assisted Presentations with Slidev: From Prompt to Polished Deck</span></div>
+      <span class="gs-btn">PDF</span><span class="gs-btn">PPTX</span>
+    </div>
+    <div class="gs-notes">
+      <span class="gs-note gs-note--main">&uarr; Click here to open the live slides</span>
+      <span class="gs-note">&uarr; Or download a copy</span>
+    </div>
+  </div>
+  <div class="gs-step gs-step--row">
+    <span class="gs-eyebrow">3 &middot; Follow along</span>
+    <span class="gs-tip">Move with <NyuKbd>&larr;</NyuKbd> <NyuKbd>&rarr;</NyuKbd>. Nothing to install, it runs in the browser.</span>
+  </div>
+</div>
+
+<style scoped>
+.gs { display:flex; flex-direction:column; gap:22px; margin-top:14px; }
+.gs-step { display:flex; flex-direction:column; gap:8px; }
+.gs-step--row { flex-direction:row; align-items:center; gap:18px; }
+.gs-eyebrow { font-family:var(--font-sans); font-size:var(--t-eyebrow); font-weight:600; text-transform:uppercase; letter-spacing:var(--tracked); color:var(--accent-ink); }
+.gs-url { display:block; padding:16px 26px; background:var(--nyu-violet); color:var(--white) !important; border-radius:var(--r-2); font-family:var(--font-serif); font-size:46px; font-weight:700; line-height:1.1; text-decoration:none !important; border:none !important; letter-spacing:0.01em; }
+.gs-mock { display:flex; align-items:stretch; gap:8px; }
+.gs-deck { flex:1; display:flex; align-items:center; gap:14px; padding:12px 16px; background:var(--bg1); border:1px solid var(--hairline); border-radius:var(--r-2); }
+.gs-hit { border:2px solid var(--nyu-violet); box-shadow:0 0 0 4px var(--surface-violet); }
+.gs-num { font-weight:700; color:var(--nyu-violet); background:var(--surface-violet); border-radius:6px; padding:3px 9px; font-size:15px; }
+.gs-title { font-weight:600; font-size:15px; color:var(--fg1); }
+.gs-btn { display:flex; align-items:center; padding:0 16px; background:var(--bg1); border:1px solid var(--hairline); border-radius:var(--r-2); color:var(--nyu-violet); font-weight:600; font-size:14px; }
+.gs-notes { display:flex; justify-content:space-between; padding:0 6px; }
+.gs-note { font-size:var(--t-small); color:var(--fg2); }
+.gs-note--main { font-weight:600; color:var(--fg1); }
+.gs-tip { font-size:var(--t-body-lg); color:var(--fg1); }
+</style>
+
+<!--
+Laptops open now. Read the link out loud: tinyurl dot com slash nyuad dash ai. It
+redirects to the workshop series landing page on GitHub Pages; the card for this
+deck opens the live slides, and the PDF / PPTX buttons beside it download a copy.
+Give people 30 seconds and check the room before moving on. The live deck is
+interactive (the regression demo near the end works on their own laptop too).
+-->
+
+---
 
 # What is Slidev?
 

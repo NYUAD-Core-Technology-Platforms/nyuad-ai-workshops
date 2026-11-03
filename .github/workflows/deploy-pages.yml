@@ -9,6 +9,10 @@ on:
   push:
     branches: [main]
   workflow_dispatch: {}
+  # Daily rebuild so baked data (the NYUAD student figures) stays current.
+  # 03:17 UTC = 07:17 in Abu Dhabi.
+  schedule:
+    - cron: '17 3 * * *'
 
 # Required for the GitHub Pages deployment.
 permissions:
@@ -45,6 +49,12 @@ jobs:
         # --no-frozen-lockfile keeps CI green even if the lockfile lags behind
         # a package.json edit; commit an updated lockfile to make this strict.
         run: pnpm install --no-frozen-lockfile
+
+      - name: Refresh NYUAD student figures
+        # Reads nyuad.nyu.edu Facts and Figures and rewrites the deck's JSON.
+        # Fails soft: if the page cannot be read, the committed JSON is kept.
+        run: node workshops/01-slidev/scripts/nyuad-students.mjs
+        continue-on-error: true
 
       - name: Install Playwright Chromium (for PDF and PPTX export)
         run: pnpm exec playwright install --with-deps chromium

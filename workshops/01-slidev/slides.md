@@ -813,6 +813,32 @@ older Macs should go straight to the nodejs.org installer.
 -->
 
 ---
+layout: default
+---
+
+# Live data: NYUAD students
+
+A GitHub Action reads NYUAD's Facts and Figures page every day and publishes the numbers with this deck. **Refresh** re-reads them live, no page reload.
+
+<NyuadStudents />
+
+<!--
+A slide is a web page, so it can show data that changes. Click Refresh: it re-reads
+the latest figures published with the deck, without reloading the page.
+
+Why not read NYUAD's page directly from the browser? A page on github.io may only
+read another site's content if that site allows it (CORS), and NYUAD's page does
+not. So the reading happens on the build machine instead: a GitHub Action runs
+scripts/nyuad-students.mjs before every deploy and once a day on a schedule, writing
+data/nyuad-students.json next to the deck. Refresh fetches that file, which is on the
+same site. NYUAD publishes these figures once a year (rounded, "2,000+"), so day to
+day the number rarely moves; the point is the pattern.
+
+GitHub pauses scheduled workflows in a repo with no activity for 60 days; re-enable
+it from the Actions tab if the daily refresh stops.
+-->
+
+---
 layout: two-cols-header
 ---
 

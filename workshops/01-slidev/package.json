@@ -9,7 +9,8 @@
     "export": "slidev export",
     "export:pdf": "slidev export --format pdf",
     "export:pptx": "slidev export --format pptx",
-    "data": "node scripts/repo-stats.mjs"
+    "data": "node scripts/repo-stats.mjs",
+    "data:students": "node scripts/nyuad-students.mjs"
   },
   "dependencies": {
     "slidev-theme-nyu": "file:../../theme"

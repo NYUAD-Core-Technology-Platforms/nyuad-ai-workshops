@@ -107,9 +107,63 @@ First content slide, so make it land: Part A you watch, Part B you build, and A 
 B. Point at the two words "Watch" and "Build" rather than reading the lists.
 
 Chenyu Yi opens the session with ~10 min on institutional AI platforms, accepted data and
-costs, presenting her own slides before this deck (dashed strip above the cards). With
+costs, using her three slides that follow this one (dashed strip above the cards). With
 Part A ~20 and Part B ~40 that is ~70 min inside the 12:00-13:15 slot. If we must hold to
 60 min, trim Part A to ~15 and Part B to ~35.
+-->
+
+---
+layout: none
+---
+
+<GuestSlide
+  src="/img/chenyu/01-approved-tools-data.webp"
+  alt="Approved Tools, data guidance: a pyramid matching NYU data levels 1 to 3 to the AI tools approved for each level."
+  :links="[
+    { href: 'https://www.nyu.edu/about/policies-guidelines-compliance/policies-and-guidelines/data-risk-classification-policy.html', title: 'NYU Data Risk Classification Policy', left: 63.5, top: 0.9, width: 14.6, height: 8.5 },
+    { href: 'https://drive.google.com/file/d/1vosbU7Zz1zVKCjfKddgWd85vGdj7XQ2L/view?usp=sharing', title: 'Guidance for third-party AI tools', left: 66.7, top: 96.3, width: 17.3, height: 2.6 },
+  ]"
+/>
+
+<!--
+Chenyu Yi, slide 1 of 3: approved AI tools by data level.
+
+Clickable here: "Data Guidance!" (top) opens the NYU Data Risk Classification Policy;
+"guidance for third-party AI tools" (bottom right) opens the guidance document.
+
+These three slides come from Chenyu's Google Slides deck ("Model/Token/Agent Literacy
+Playbook", slides 1 to 3) and are shown as images. To update them, re-export those
+slides from Google Slides and replace the files in public/img/chenyu/.
+-->
+
+---
+layout: none
+---
+
+<GuestSlide
+  src="/img/chenyu/02-approved-tools-cost.webp"
+  alt="Approved Tools, cost: Claude Enterprise, Claude Team, Gemini AI Pro, ChatGPT Edu and free Gemini, with yearly prices and suggested roles."
+/>
+
+<!--
+Chenyu Yi, slide 2 of 3: approved tools and what they cost.
+-->
+
+---
+layout: none
+---
+
+<GuestSlide
+  src="/img/chenyu/03-ai-resources.webp"
+  alt="AI Resources: for more information about available tools and how to request them, visit AI@NYUAD on the intranet."
+  :links="[
+    { href: 'https://intranet.nyuad.nyu.edu/faculty-resources/office-of-the-provost/ai-at-nyu-abu-dhabi/', title: 'AI@NYUAD on the intranet', left: 5.7, top: 27.8, width: 12.7, height: 5.4 },
+  ]"
+/>
+
+<!--
+Chenyu Yi, slide 3 of 3: where to find more. "AI@NYUAD" is clickable and opens the
+intranet page (NYU sign-in needed). Then hand over for Part A.
 -->
 
 ---
@@ -715,18 +769,54 @@ sudo apt install nodejs npm
 
 **2 · In your deck folder, on any system:** install Slidev (pinned to `^0.49.0`, v52 has a Windows path bug) and start it.
 
+<div class="cmd-grid">
+<div class="cmd">
+
+<span class="cmd-n">1</span> Go to your deck folder
+
 ```bash
 cd path/to/your/deck
-npm init -y
-npm i "@slidev/cli@^0.49.0" @slidev/theme-default
-npx slidev            # then open http://localhost:3030/
 ```
+
+</div>
+<div class="cmd">
+
+<span class="cmd-n">2</span> Create a package.json
+
+```bash
+npm init -y
+```
+
+</div>
+<div class="cmd">
+
+<span class="cmd-n">3</span> Install Slidev
+
+```bash
+npm i "@slidev/cli@^0.49.0" @slidev/theme-default
+```
+
+</div>
+<div class="cmd">
+
+<span class="cmd-n">4</span> Start it, then open http://localhost:3030/
+
+```bash
+npx slidev
+```
+
+</div>
+</div>
 
 <style scoped>
 .os-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:var(--s-4); margin:var(--s-2) 0 var(--s-3); }
 .os-col { border-left:3px solid var(--accent-ink); padding-left:var(--s-3); }
 .os-grid p { margin:0 0 var(--s-1); font-size:var(--t-small); }
 .os-grid pre { margin:var(--s-1) 0 !important; }
+.cmd-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:var(--s-2) var(--s-4); margin-top:var(--s-2); }
+.cmd p { margin:0; font-size:var(--t-small); color:var(--fg2); }
+.cmd pre { margin:var(--s-1) 0 0 !important; }
+.cmd-n { display:inline-block; min-width:1.5em; height:1.5em; line-height:1.5em; text-align:center; margin-right:var(--s-1); border-radius:var(--r-pill); background:var(--nyu-violet); color:var(--white); font-weight:700; font-size:var(--t-caption); }
 </style>
 
 <!--

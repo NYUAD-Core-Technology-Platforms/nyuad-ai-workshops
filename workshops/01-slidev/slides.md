@@ -16,6 +16,7 @@ lineNumbers: false
 drawings:
   persist: false
 transition: fade
+selectable: true
 mdc: true
 layout: cover
 ---
@@ -738,9 +739,9 @@ layout: default
 
 **Windows** · PowerShell
 
-```powershell
+<Cmd>
 winget install OpenJS.NodeJS.LTS
-```
+</Cmd>
 
 Then open a **fresh** window.
 
@@ -749,9 +750,9 @@ Then open a **fresh** window.
 
 **macOS** · Terminal
 
-```bash
+<Cmd>
 brew install node
-```
+</Cmd>
 
 No Homebrew, or `brew` fails? Use the macOS installer from [nodejs.org](https://nodejs.org).
 
@@ -760,52 +761,33 @@ No Homebrew, or `brew` fails? Use the macOS installer from [nodejs.org](https://
 
 **Linux** · Debian / Ubuntu
 
-```bash
+<Cmd>
 sudo apt install nodejs npm
-```
+</Cmd>
 
 </div>
 </div>
 
-**2 · In your deck folder, on any system:** install Slidev (pinned to `^0.49.0`, v52 has a Windows path bug) and start it.
+**2 · In your deck folder, on any system,** run each line in order (Slidev is pinned to `^0.49.0`, v52 has a Windows path bug), then open `http://localhost:3030/`.
 
 <div class="cmd-grid">
-<div class="cmd">
 
-<span class="cmd-n">1</span> Go to your deck folder
-
-```bash
+<Cmd n="1">
 cd path/to/your/deck
-```
+</Cmd>
 
-</div>
-<div class="cmd">
-
-<span class="cmd-n">2</span> Create a package.json
-
-```bash
+<Cmd n="2">
 npm init -y
-```
+</Cmd>
 
-</div>
-<div class="cmd">
-
-<span class="cmd-n">3</span> Install Slidev
-
-```bash
+<Cmd n="3">
 npm i "@slidev/cli@^0.49.0" @slidev/theme-default
-```
+</Cmd>
 
-</div>
-<div class="cmd">
-
-<span class="cmd-n">4</span> Start it, then open http://localhost:3030/
-
-```bash
+<Cmd n="4">
 npx slidev
-```
+</Cmd>
 
-</div>
 </div>
 
 <style scoped>
@@ -814,9 +796,6 @@ npx slidev
 .os-grid p { margin:0 0 var(--s-1); font-size:var(--t-small); }
 .os-grid pre { margin:var(--s-1) 0 !important; }
 .cmd-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:var(--s-2) var(--s-4); margin-top:var(--s-2); }
-.cmd p { margin:0; font-size:var(--t-small); color:var(--fg2); }
-.cmd pre { margin:var(--s-1) 0 0 !important; }
-.cmd-n { display:inline-block; min-width:1.5em; height:1.5em; line-height:1.5em; text-align:center; margin-right:var(--s-1); border-radius:var(--r-pill); background:var(--nyu-violet); color:var(--white); font-weight:700; font-size:var(--t-caption); }
 </style>
 
 <!--
@@ -839,16 +818,23 @@ layout: two-cols-header
 
 # Export to PDF or PowerPoint
 
-Hand the deck off as a portable file. One time, install the headless browser Slidev renders with: `npm install playwright-chromium`. Exports are snapshots, so interactive parts become static images.
+Hand the deck off as a portable file. Exports are snapshots, so interactive parts become static images. Once per deck folder, install the headless browser Slidev renders with:
+
+<Cmd>
+npm install playwright-chromium
+</Cmd>
 
 ::left::
 
 ### PDF
 
-```bash
+<Cmd>
 npx slidev export
-# Decks in this repo: npm run export:pdf
-```
+</Cmd>
+
+<Cmd note="in this repo">
+npm run export:pdf
+</Cmd>
 
 One page per slide, written to `slides-export.pdf`. Good for handouts and archives.
 
@@ -856,10 +842,13 @@ One page per slide, written to `slides-export.pdf`. Good for handouts and archiv
 
 ### PowerPoint
 
-```bash
+<Cmd>
 npx slidev export --format pptx
-# Decks in this repo: npm run export:pptx
-```
+</Cmd>
+
+<Cmd note="in this repo">
+npm run export:pptx
+</Cmd>
 
 A `.pptx` with each slide as a full-page image, ready to drop into a required template.
 
@@ -884,9 +873,9 @@ layout: default
 
 **Windows** · PowerShell
 
-```powershell
+<Cmd>
 winget install --id Git.Git -e
-```
+</Cmd>
 
 Then open a **fresh** window.
 
@@ -895,30 +884,37 @@ Then open a **fresh** window.
 
 **macOS** · Terminal
 
-```bash
+<Cmd>
 xcode-select --install
-```
+</Cmd>
 
-Or `brew install git`.
+Or, with Homebrew:
+
+<Cmd>
+brew install git
+</Cmd>
 
 </div>
 <div class="os-col">
 
 **Linux** · Debian / Ubuntu
 
-```bash
+<Cmd>
 sudo apt install git
-```
+</Cmd>
 
 </div>
 </div>
 
 **2 · On any system:** check the install and clone the repo into the current folder.
 
-```bash
+<Cmd n="1" note="check the install">
 git --version
+</Cmd>
+
+<Cmd n="2">
 git clone https://github.com/NYUAD-Core-Technology-Platforms/nyuad-ai-workshops.git
-```
+</Cmd>
 
 <style scoped>
 .os-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:var(--s-4); margin:var(--s-2) 0 var(--s-3); }
@@ -951,12 +947,21 @@ After the manual setup above works once, **this repo** ships a scaffold script s
 
 ### Scaffold
 
-```bash
-npm install -g pnpm@9   # one-time, per computer
+<Cmd n="1" note="once per computer">
+npm install -g pnpm@9
+</Cmd>
+
+<Cmd n="2">
 cd nyuad-ai-workshops
-pnpm install            # one-time, per clone
+</Cmd>
+
+<Cmd n="3" note="once per clone">
+pnpm install
+</Cmd>
+
+<Cmd n="4">
 pnpm new-workshop my-talk
-```
+</Cmd>
 
 It creates `workshops/NN-my-talk/` with the next free number
 
@@ -985,10 +990,13 @@ needs sudo. Open a fresh terminal on Windows if pnpm is not found right after.
 
 From the repo root, register the new package and start the live dev server. Open `http://localhost:3030/` when it prints.
 
-```bash
-pnpm install                                # registers the new workspace package
-pnpm --filter ./workshops/02-my-talk dev    # live preview at http://localhost:3030
-```
+<Cmd n="1" note="registers the new package">
+pnpm install
+</Cmd>
+
+<Cmd n="2" note="live preview at localhost:3030">
+pnpm --filter ./workshops/02-my-talk dev
+</Cmd>
 
 <NyuCallout label="The editing loop" tone="accent">
 Edit `slides.md` and the browser hot-reloads instantly. The deck already uses the NYU theme and components, so it looks like this one from the first run, no extra setup.
@@ -1024,14 +1032,17 @@ Live now:
 ::right::
 
 ### Versioned releases
-Tag a version and a second workflow attaches per-deck archives to a GitHub Release:
+Tag a version; a second workflow attaches each deck to a GitHub Release:
 
-```bash
-git tag v2026.09 && git push origin v2026.09
-```
+<Cmd n="1">
+git tag v2026.09
+</Cmd>
 
-- `<NN-slug>.pdf` and `<NN-slug>.pptx`, exported PDF and PowerPoint
-- `<NN-slug>-html.zip`, an offline copy of the slides
+<Cmd n="2">
+git push origin v2026.09
+</Cmd>
+
+You get `<NN-slug>.pdf`, `.pptx`, and `-html.zip` (an offline copy).
 
 <!--
 Point at this live site as proof: the deck on screen is published exactly this
@@ -1051,10 +1062,13 @@ Your deck links the theme via `file:../../theme`, a **symlink** not a copy, so y
 
 ### To get the latest theme
 
-```bash
+<Cmd n="1">
 cd /path/to/nyuad-ai-workshops
+</Cmd>
+
+<Cmd n="2">
 git pull
-```
+</Cmd>
 
 The next browser reload (or `npx slidev build` / `export`) picks up the changes.
 

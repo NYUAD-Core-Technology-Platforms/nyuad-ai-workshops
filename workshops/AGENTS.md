@@ -253,6 +253,18 @@ Slidev's static build uses absolute asset paths. Opening `dist/index.html` from 
 
 In a custom Vue component, never write the literal `<script>`, `</script>`, `<template>`, or `<style>` inside a comment or string. Slidev counts those tags to locate the script block and inject its `$slidev` context; a stray one in a comment causes a double injection and the dev server crashes with `Identifier '$slidev' has already been declared`. Write "script-setup" (no angle brackets) in prose. Also avoid passing a top-level ref through a template handler, template refs auto-unwrap to plain values, so the handler mutates a number and nothing happens; mutate the ref from a script-scope function and use `@click.stop` on interactive buttons.
 
+### Component image paths need the base URL
+
+A path like `/img/foo.png` passed to a custom component as a prop (e.g. `src`) is not rewritten by Vite, so it works locally but 404s on GitHub Pages, where decks live under `/nyuad-ai-workshops/NN-slug/`. Prefix `import.meta.env.BASE_URL` inside the component, as `theme/components/NyuLogo.vue` and `01-slidev/components/GuestSlide.vue` do. Plain `<img src="/img/...">` written directly in `slides.md` is rewritten and is fine. To check, build with `-- --base /nyuad-ai-workshops/NN-slug/` and serve `dist/` under that path.
+
+### No `>` child selectors in a slide's `<style>` block
+
+Slidev 0.49 fails to lift a per-slide `<style scoped>` block out of the template when the CSS contains a `>` child combinator; the slide then renders blank with "Tags with side effect (<script> and <style>) are ignored". Give the children a class instead (`.os-col { ... }`, not `.os-grid > div { ... }`).
+
+### Terminal commands: one `<Cmd>` per line
+
+Show shell commands with `01-slidev/components/Cmd.vue`, one command per component, so each has its own always-visible Copy button (props: `n` step number, `note` short hint that is not copied). Keep the tags on their own lines so Markdown leaves the text alone. The deck headmatter sets `selectable: true` so attendees can also select command text with the mouse; Slidev disables selection by default.
+
 ### Stop the dev server before exporting
 
 `pnpm export` and `pnpm build` start headless Slidev runs; running them while `pnpm dev` is holding port 3030 can fail or interfere. Stop the dev server first (Ctrl-C), then export/build.

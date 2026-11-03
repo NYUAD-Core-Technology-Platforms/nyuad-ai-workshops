@@ -12,6 +12,8 @@
   Use with layout: none so the image fills the whole slide.
 -->
 <script setup lang="ts">
+import { computed } from 'vue'
+
 interface GuestLink {
   href: string
   title: string
@@ -21,16 +23,26 @@ interface GuestLink {
   height: number
 }
 
-withDefaults(defineProps<{
+const props = withDefaults(defineProps<{
   src: string
   alt: string
   links?: GuestLink[]
 }>(), { links: () => [] })
+
+// Prefix Vite's base URL so the image resolves both at the domain root (local
+// dev, PDF export) and under a sub-path (GitHub Pages: /repo/NN-slug/). A bare
+// "/img/..." points at the domain root and 404s online. Same approach as NyuLogo.
+const resolvedSrc = computed(() => {
+  const s = props.src
+  if (/^(https?:|data:|blob:)/.test(s)) return s
+  const base = import.meta.env.BASE_URL || '/'
+  return base + s.replace(/^\//, '')
+})
 </script>
 
 <template>
   <div class="guest">
-    <img class="guest__img" :src="src" :alt="alt" />
+    <img class="guest__img" :src="resolvedSrc" :alt="alt" />
     <a v-for="l in links" :key="l.href"
        class="guest__link" :href="l.href" :title="l.title" :aria-label="l.title"
        target="_blank" rel="noopener"
